@@ -36,28 +36,28 @@ class TestStockDataValidation(unittest.TestCase):
     # Test case: Check if 'open' is not a decimal
     def test_invalid_open(self):
         invalid_data = self.valid_data.copy()
-        invalid_data['open'] = '120.50'  # Invalid: should be a float, not string
+        invalid_data['open'] = '120.50'  
         result = validate_stock_data(invalid_data)
         self.assertEqual(result, "Open should be a decimal")
     
     # Test case: Check if 'volume' is not an integer
     def test_invalid_volume(self):
         invalid_data = self.valid_data.copy()
-        invalid_data['volume'] = 1000.5  # Invalid: volume should be an integer
+        invalid_data['volume'] = 1000.5  
         result = validate_stock_data(invalid_data)
         self.assertEqual(result, "Volume should be an integer")
     
     # Test case: Check if 'instrument' is not a string
     def test_invalid_instrument(self):
         invalid_data = self.valid_data.copy()
-        invalid_data['instrument'] = 123  # Invalid: should be a string
+        invalid_data['instrument'] = 123  
         result = validate_stock_data(invalid_data)
         self.assertEqual(result, "Instrument should be a string")
     
     # Test case: Check if 'datetime' is not a datetime object
     def test_invalid_datetime(self):
         invalid_data = self.valid_data.copy()
-        invalid_data['datetime'] = '2023-09-09'  # Invalid: should be datetime object, not string
+        invalid_data['datetime'] = '2023-09-09'  
         result = validate_stock_data(invalid_data)
         self.assertEqual(result, "Datetime should be a datetime object")
 
